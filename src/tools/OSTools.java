@@ -8,18 +8,11 @@ import java.util.regex.Pattern;
  * @author ypl
  * @date 2020/1/4
  */
-public class OS implements Constant {
+public class OSTools implements Constant {
 
     private static boolean os;
-    /**
-     * 换行符
-     */
-    public static String lineBreakSymbol;
-    /**
-     * 文件分割符
-     */
-    public static char separateSymbol;
-
+    private static String lineSeparator;
+    private static char fileSeparator;
     private static final String WINDOWS_REGEX = "[wW][iI][nN]";
 
     static {
@@ -37,8 +30,8 @@ public class OS implements Constant {
      */
     public static void setAsLinux() {
         os = LINUX;
-        lineBreakSymbol = "\n";
-        separateSymbol = '/';
+        lineSeparator = "\n";
+        fileSeparator = '/';
     }
 
     /**
@@ -46,12 +39,31 @@ public class OS implements Constant {
      */
     public static void setAsWindows() {
         os = WINDOWS;
-        lineBreakSymbol = "\r\n";
-        separateSymbol = '\\';
+        lineSeparator = "\r\n";
+        fileSeparator = '\\';
     }
 
     public static boolean getOS() {
         return os;
+    }
+
+    public static String getLineSeparator() {
+        return lineSeparator;
+    }
+
+    public static char getFileSeparator() {
+        return fileSeparator;
+    }
+
+    // ========================================================================
+
+    /**
+     * 获取用户的家目录
+     *
+     * @return 家目录路径
+     */
+    public static String getUserHomeDir() {
+        return System.getProperty("user.home");
     }
 
 }

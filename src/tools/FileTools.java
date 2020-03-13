@@ -2,6 +2,7 @@ package tools;
 
 import main.Constant;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -13,7 +14,7 @@ public class FileTools implements Constant {
     /**
      * 弹出文件管理器
      *
-     * @param os        操作系统
+     * @param os 操作系统
      * @param directory 传入一个目录, 不是绝对路径
      */
     public static void showFile(boolean os, String directory) {
@@ -28,6 +29,53 @@ public class FileTools implements Constant {
             e.printStackTrace();
         }
     }
+
+    // ========================================================================
+
+    /**
+     * 获取存储接收到的图片的文件夹的绝对路径
+     *
+     * @return 保存图片文件夹的绝对路径
+     */
+    private static String getPicturesFolder() {
+        // 获取用户家目录
+        String homeDir = OSTools.getUserHomeDir();
+        // 根据家目录得到图片保存的路径
+        String receiveFolder = homeDir + OSTools.getFileSeparator() + "Pictures" + OSTools.getFileSeparator() + "receive" + OSTools.getFileSeparator();
+        // 如果此目录不存在, 则创建此目录
+        File receiveFolderFile = new File(receiveFolder);
+        if (!receiveFolderFile.exists()) {
+            receiveFolderFile.mkdirs();
+        }
+        return receiveFolder;
+    }
+
+    /**
+     * <p>获得一个新图片的绝对路径</p>
+     * 如: C:\Users\ypl\Pictures\receive\receive_2020_03_13_20_07_13.jpg
+     *
+     * @return 新图片的绝对路径
+     */
+    public static String getNewPhotoPath() {
+        return getPicturesFolder() + NameTools.getNewName();
+    }
+
+    /**
+     * <p>获取最新收到的图片的绝对路径</p>
+     *
+     * @return
+     */
+    public static String getLastPhotoPath() {
+        String name = NameTools.getLastName();
+        if (name == NameTools.DEFAULT_NAME){
+            // name等于默认名说明还没收到图片, 此时name即使文件名也是路径
+            return name;
+        } else {
+            return getPicturesFolder() + NameTools.getLastName();
+        }
+    }
+
+    // ========================================================================
 
     /**
      * <p>将一个绝对路径拆分成目录, 文件名(不包含点)</p>
@@ -45,7 +93,7 @@ public class FileTools implements Constant {
             if (point_dot == -1 && c == '.') {
                 point_dot = i;
             }
-            if (point_slash == -1 && c == OS.separateSymbol) {
+            if (point_slash == -1 && c == OSTools.getFileSeparator()) {
                 point_slash = i;
             }
             // 位置都找到了之后就退出

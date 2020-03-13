@@ -1,5 +1,7 @@
 package ui;
 
+import tools.FileTools;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +15,7 @@ import java.io.IOException;
  */
 public class PhotoPanel extends JPanel {
 
-    private File file = new File("receive.jpg");
+    private File file;
     private BufferedImage image = null;
 
     /**
@@ -31,6 +33,7 @@ public class PhotoPanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         try {
+            file = new File(FileTools.getLastPhotoPath());
             image = ImageIO.read(file);
         } catch (IOException e) {
             e.printStackTrace();

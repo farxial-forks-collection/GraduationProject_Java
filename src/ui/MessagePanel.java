@@ -2,7 +2,7 @@ package ui;
 
 import main.Constant;
 import component.MyTextArea;
-import tools.OS;
+import tools.OSTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +35,7 @@ public class MessagePanel extends JScrollPane implements Constant {
     // 以下为外部可调用方法 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     public void append(String message) {
-        textArea.append(message + OS.lineBreakSymbol);
+        textArea.append(message + OSTools.getLineSeparator());
         // 信息自动滚动到最底端
         scrollBar.setValue(scrollBar.getMaximum());
     }

@@ -1,11 +1,15 @@
 package tcpthread;
 
 import main.Constant;
+import tools.FileTools;
 import tools.IOTools;
 import tools.OtherTools;
 import ui.TcpUI;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author ypl
@@ -25,7 +29,6 @@ public class ReceiveThread extends Thread implements Constant {
      * 接受的总字节数
      */
     private final int TOTAL_SIZE = PACKAGE_SIZE * PACKAGE_COUNT;
-    private static final String FORMED_PHOTO_PATH = "receive.jpg";
     BufferedInputStream bufferedInputStream;
     BufferedOutputStream bufferedOutputStream;
     TcpUI tcpui;
@@ -40,8 +43,9 @@ public class ReceiveThread extends Thread implements Constant {
     public void run() {
         byte[] bytes, pack;
         int point_bytes, pack_count;
-        int[] position; // 长度为2, 存储point_ffd8和point_ffd9
-        File formedPhoto = new File(FORMED_PHOTO_PATH);
+        // 长度为2, 存储point_ffd8和point_ffd9
+        int[] position;
+        File formedPhoto = new File(FileTools.getNewPhotoPath());
         while (true) {
             // 初始化变量
             bytes = new byte[TOTAL_SIZE];

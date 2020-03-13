@@ -6,7 +6,7 @@ import listener.ConvertListener;
 import main.Constant;
 import component.MyComboBox;
 import component.MyRadioButton;
-import tools.OS;
+import tools.OSTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +46,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         osButtonGroup.add(linuxButton);
         osButtonGroup.add(winButton);
         // 自动检测操作系统
-        if (OS.getOS() == LINUX) {
+        if (OSTools.getOS() == LINUX) {
             linuxButton.setSelected(true);
         } else {
             winButton.setSelected(true);

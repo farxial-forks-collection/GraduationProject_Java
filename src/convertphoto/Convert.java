@@ -2,7 +2,7 @@ package convertphoto;
 
 import tools.FileTools;
 import tools.IOTools;
-import tools.OS;
+import tools.OSTools;
 import tools.OtherTools;
 
 import java.io.*;
@@ -58,7 +58,7 @@ public class Convert {
                 count++;
                 // 超过最大数据量, 换行
                 if (count >= maxLineCount) {
-                    bufferedOutputStream.write(OS.lineBreakSymbol.getBytes());
+                    bufferedOutputStream.write(OSTools.getLineSeparator().getBytes());
                     bufferedOutputStream.flush();
                     count = 0;
                 }
