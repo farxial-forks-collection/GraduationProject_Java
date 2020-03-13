@@ -77,6 +77,7 @@ public class ReceiveThread extends Thread implements Constant {
             // 显示图片
             tcpui.setBufferedOutputStream(bufferedOutputStream);
             tcpui.setPhoto();
+            tcpui.printMessage("photo saved: " + FileTools.getLastPhotoPath());
         }
     }
 

@@ -51,7 +51,7 @@ public class FileTools implements Constant {
     }
 
     /**
-     * <p>获得一个新图片的绝对路径</p>
+     * <p>生成一个新图片的绝对路径</p>
      * 如: C:\Users\ypl\Pictures\receive\receive_2020_03_13_20_07_13.jpg
      *
      * @return 新图片的绝对路径

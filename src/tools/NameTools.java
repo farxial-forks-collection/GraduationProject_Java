@@ -10,7 +10,7 @@ public class NameTools {
     private static String name;
 
     /**
-     * <p>获得一个新的图片名字</p>
+     * <p>生成一个新的图片名字</p>
      * 例如: receive_2020_03_13_15_23_25.jpg
      *
      * @return 新图片的文件名(包括后缀)
