@@ -40,11 +40,11 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         methodButtonGroup.add(toJpgButton);
 
         // 操作系统单选按钮
-        linuxButton = new MyRadioButton("Linux", false, LINUX_ACTION, false);
         winButton = new MyRadioButton("Windows", false, WINDOWS_ACTION, false);
+        linuxButton = new MyRadioButton("Linux", false, LINUX_ACTION, false);
         ButtonGroup osButtonGroup = new ButtonGroup();
-        osButtonGroup.add(linuxButton);
         osButtonGroup.add(winButton);
+        osButtonGroup.add(linuxButton);
         // 自动检测操作系统
         if (OSTools.getOS() == LINUX) {
             linuxButton.setSelected(true);
@@ -84,8 +84,8 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         this.add(toTxtButton);
         this.add(toJpgButton);
         this.add(new JLabel("Select Your OS: "));
-        this.add(linuxButton);
         this.add(winButton);
+        this.add(linuxButton);
         this.add(commaCheckBox);
         this.add(new JLabel("Line Count: "));
         this.add(comboBox);

@@ -3,6 +3,7 @@ package ui;
 import component.MyTextArea;
 import listener.TimeListener;
 import main.Constant;
+import tools.UiTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,9 +41,9 @@ public class TcpUI implements Constant {
         // 左边图片面板
         photoPanel = new PhotoPanel(640, 480);
         // 右边控制面板
-        JPanel rightPanel = new RightPanel(158, 480, this);
+        JPanel rightPanel = new RightPanel(158 + UiTools.WIDTH_OFFSET, 480, this);
         // 底部信息面板
-        messagePanel = new MessagePanel(798, 120, new MyTextArea());
+        messagePanel = new MessagePanel(798, 120 + UiTools.HEIGHT_OFFSET, new MyTextArea());
 
         // 添加所有二级面板
         container.add(photoPanel, BorderLayout.WEST);
