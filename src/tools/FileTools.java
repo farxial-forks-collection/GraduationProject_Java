@@ -45,7 +45,9 @@ public class FileTools implements Constant {
         // 如果此目录不存在, 则创建此目录
         File receiveFolderFile = new File(receiveFolder);
         if (!receiveFolderFile.exists()) {
-            receiveFolderFile.mkdirs();
+            if (!receiveFolderFile.mkdir()) {
+                throw new SecurityException(receiveFolder + " created fail!");
+            }
         }
         return receiveFolder;
     }
@@ -63,11 +65,11 @@ public class FileTools implements Constant {
     /**
      * <p>获取最新收到的图片的绝对路径</p>
      *
-     * @return
+     * @return 图片的绝对路径
      */
     public static String getLastPhotoPath() {
         String name = NameTools.getLastName();
-        if (name == NameTools.DEFAULT_NAME){
+        if (name.equals(NameTools.DEFAULT_NAME)) {
             // name等于默认名说明还没收到图片, 此时name即使文件名也是路径
             return name;
         } else {

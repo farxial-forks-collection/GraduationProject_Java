@@ -22,18 +22,13 @@ public class OsTools implements Constant {
     private static char fileSeparator;
     private static final String WINDOWS_REGEX = "[wW][iI][nN]";
 
-    public static int WIDTH_OFFSET = 0;
-    public static int HEIGHT_OFFSET = 0;
-
+    // 获取操作系统名称
     static {
-        // 获取操作系统名称
         String osName = System.getProperty("os.name");
         if (Pattern.matches(WINDOWS_REGEX, osName.substring(0, 3))) {
             setAsWindows();
-            windowsUiFix();
         } else {
             setAsLinux();
-            linuxUiFix();
         }
     }
 
@@ -53,32 +48,6 @@ public class OsTools implements Constant {
         os = WINDOWS;
         lineSeparator = "\r\n";
         fileSeparator = '\\';
-    }
-
-    /**
-     * linux下修复ui的方法
-     */
-    private static void linuxUiFix() {
-        WIDTH_OFFSET += 14;
-    }
-
-    /**
-     * windows下修复ui的方法
-     */
-    private static void windowsUiFix() {
-        // 获取当前java的版本
-        String version = System.getProperty("java.specification.version");
-        System.out.println("Java version: " + version);
-        switch (version) {
-            case "1.8":
-                HEIGHT_OFFSET += 2;
-                WIDTH_OFFSET += 8;
-                break;
-            case "11":
-            default:
-                HEIGHT_OFFSET += 0;
-                WIDTH_OFFSET += 0;
-        }
     }
 
     public static boolean getOS() {

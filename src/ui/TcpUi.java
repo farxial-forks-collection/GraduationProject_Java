@@ -4,6 +4,7 @@ import component.MyTextArea;
 import listener.TimeListener;
 import main.Constant;
 import tools.OsTools;
+import tools.UiTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,9 +44,9 @@ public class TcpUi implements Constant {
         // 左边图片面板
         photoPanel = new PhotoPanel(640, 480);
         // 右边控制面板
-        JPanel rightPanel = new RightPanel(OsTools.WIDTH_OFFSET + 158, 480, this);
+        JPanel rightPanel = new RightPanel(UiTools.WIDTH_OFFSET + 158, 480, this);
         // 底部信息面板
-        messagePanel = new MessagePanel(798, 120 + OsTools.HEIGHT_OFFSET, new MyTextArea());
+        messagePanel = new MessagePanel(798, 120 + UiTools.HEIGHT_OFFSET, new MyTextArea());
 
         // 添加所有二级面板
         container.add(photoPanel, BorderLayout.WEST);
@@ -54,7 +55,7 @@ public class TcpUi implements Constant {
         frame.setVisible(true);
 
         System.out.println("width: " + container.getWidth() + "   height: " + container.getHeight());
-        System.out.println("width_offset: " + OsTools.WIDTH_OFFSET + "   height_offset: " + OsTools.HEIGHT_OFFSET);
+        System.out.println("width_offset: " + UiTools.WIDTH_OFFSET + "   height_offset: " + UiTools.HEIGHT_OFFSET);
     }
 
     // 以下为外部可调用方法 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
