@@ -4,7 +4,7 @@ import convertphoto.Convert;
 import convertphoto.ConvertInterface;
 import main.Constant;
 import tools.FileTools;
-import tools.OSTools;
+import tools.OsTools;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -83,11 +83,11 @@ public class ConvertListener implements ActionListener, Constant {
     }
 
     private void linuxAction() {
-        OSTools.setAsLinux();
+        OsTools.setAsLinux();
     }
 
     private void winAction() {
-        OSTools.setAsWindows();
+        OsTools.setAsWindows();
     }
 
     private void commaAction() {
@@ -124,7 +124,7 @@ public class ConvertListener implements ActionListener, Constant {
             if (isPhoto) {
                 Convert.getTxtByJpg(path, needComma, maxLineCount);
                 status = CONVERT_JPG_TO_TXT_SUCCESS;
-                FileTools.showFile(OSTools.getOS(), dir);
+                FileTools.showFile(OsTools.getOS(), dir);
             }
             if (!isPhoto) {
                 status = NOT_JPG;
@@ -135,7 +135,7 @@ public class ConvertListener implements ActionListener, Constant {
             if (isTxt) {
                 Convert.getJpgByTxt(path);
                 status = CONVERT_TXT_TO_JPG_SUCCESS;
-                FileTools.showFile(OSTools.getOS(), dir);
+                FileTools.showFile(OsTools.getOS(), dir);
             }
             if (!isTxt) {
                 status = NOT_TXT;
@@ -148,10 +148,10 @@ public class ConvertListener implements ActionListener, Constant {
         long time = now - past;
         switch (status) {
             case CONVERT_JPG_TO_TXT_SUCCESS:
-                optionPanelMessage = "Convert Success" + OSTools.getLineSeparator() + txtPath + OSTools.getLineSeparator() + "time: " + time + "ms";
+                optionPanelMessage = "Convert Success" + OsTools.getLineSeparator() + txtPath + OsTools.getLineSeparator() + "time: " + time + "ms";
                 break;
             case CONVERT_TXT_TO_JPG_SUCCESS:
-                optionPanelMessage = "Convert Success" + OSTools.getLineSeparator() + jpgPath + OSTools.getLineSeparator() + "time: " + time + "ms";
+                optionPanelMessage = "Convert Success" + OsTools.getLineSeparator() + jpgPath + OsTools.getLineSeparator() + "time: " + time + "ms";
                 break;
             case NOT_JPG:
                 optionPanelMessage = "Please Select A JPG Photo!";

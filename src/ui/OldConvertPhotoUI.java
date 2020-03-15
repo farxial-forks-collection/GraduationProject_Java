@@ -3,7 +3,7 @@ package ui;
 import convertphoto.ConvertInterface;
 import main.Constant;
 import listener.ConvertListener;
-import tools.OSTools;
+import tools.OsTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -77,7 +77,7 @@ public class OldConvertPhotoUI implements Constant, ConvertInterface {
         linuxButton.setActionCommand(LINUX_ACTION);
         winButton.setActionCommand(WINDOWS_ACTION);
         // 自动检测操作系统
-        if (OSTools.getOS() == LINUX) {
+        if (OsTools.getOS() == LINUX) {
             linuxButton.setSelected(true);
             winButton.setSelected(false);
         } else {

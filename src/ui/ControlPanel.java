@@ -14,8 +14,6 @@ import java.awt.*;
  */
 public class ControlPanel extends JPanel implements Constant {
 
-    private static final Color backgroundColor = Color.LIGHT_GRAY;
-
     /**
      * 构造函数
      *
@@ -23,10 +21,10 @@ public class ControlPanel extends JPanel implements Constant {
      * @param height 面板的高
      * @param tcpUI
      */
-    public ControlPanel(int width, int height, TcpUI tcpUI) {
+    public ControlPanel(int width, int height, TcpUi tcpUI) {
         super();
         this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(backgroundColor);
+        this.setBackground(Color.WHITE);
         this.setLayout(new FlowLayout());
 
         // 初始化组件
@@ -57,9 +55,9 @@ public class ControlPanel extends JPanel implements Constant {
         this.add(secondsComboBox);
         this.add(setTimeButton);
         this.add(stopButton);
-        this.add(new SpacePanel(width, 10, backgroundColor));
+        this.add(new SpacePanel(width, 10, Color.WHITE));
         this.add(takePhotoButton);
-        this.add(new SpacePanel(width, 10, backgroundColor));
+        this.add(new SpacePanel(width, 10, Color.WHITE));
         this.add(clearButton);
     }
 

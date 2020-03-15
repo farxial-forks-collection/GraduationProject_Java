@@ -2,7 +2,7 @@ package listener;
 
 import main.Constant;
 import tcpthread.MyTimerTask;
-import ui.TcpUI;
+import ui.TcpUi;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,11 +19,11 @@ public class TimeListener implements ActionListener, Constant {
 
     private int hour = 0, minute = 1, second = 0;
     private BufferedOutputStream bufferedOutputStream;
-    private TcpUI tcpUI;
+    private TcpUi tcpUI;
     private Timer timer;
     private TimerTask timerTask;
 
-    public TimeListener(TcpUI tcpUI) {
+    public TimeListener(TcpUi tcpUI) {
         this.tcpUI = tcpUI;
     }
 

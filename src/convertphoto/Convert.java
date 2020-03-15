@@ -1,8 +1,8 @@
 package convertphoto;
 
 import tools.FileTools;
-import tools.IOTools;
-import tools.OSTools;
+import tools.IoTools;
+import tools.OsTools;
 import tools.OtherTools;
 
 import java.io.*;
@@ -58,7 +58,7 @@ public class Convert {
                 count++;
                 // 超过最大数据量, 换行
                 if (count >= maxLineCount) {
-                    bufferedOutputStream.write(OSTools.getLineSeparator().getBytes());
+                    bufferedOutputStream.write(OsTools.getLineSeparator().getBytes());
                     bufferedOutputStream.flush();
                     count = 0;
                 }
@@ -142,7 +142,7 @@ public class Convert {
             int[] points = OtherTools.getFFD8AndFFD9(bytes);
             // 写入数据
             File jpgFile = new File(FileTools.getJpgPath(txtAbsolutePath));
-            IOTools.writeIntoFile(jpgFile, bytes, points[0], points[1] - points[0] + 1, false);
+            IoTools.writeIntoFile(jpgFile, bytes, points[0], points[1] - points[0] + 1, false);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

@@ -6,7 +6,7 @@ import java.io.*;
  * @author ypl
  * @date 2019/12/28
  */
-public class IOTools {
+public class IoTools {
 
     public static void writeIntoFile(File file, byte[] bytes, int off, int len, boolean append) {
         OutputStream outputStream = null;

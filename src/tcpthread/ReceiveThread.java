@@ -2,9 +2,9 @@ package tcpthread;
 
 import main.Constant;
 import tools.FileTools;
-import tools.IOTools;
+import tools.IoTools;
 import tools.OtherTools;
-import ui.TcpUI;
+import ui.TcpUi;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,9 +31,9 @@ public class ReceiveThread extends Thread implements Constant {
     private final int TOTAL_SIZE = PACKAGE_SIZE * PACKAGE_COUNT;
     BufferedInputStream bufferedInputStream;
     BufferedOutputStream bufferedOutputStream;
-    TcpUI tcpui;
+    TcpUi tcpui;
 
-    public ReceiveThread(BufferedInputStream bufferedInputStream, BufferedOutputStream bufferedOutputStream, TcpUI tcpui) {
+    public ReceiveThread(BufferedInputStream bufferedInputStream, BufferedOutputStream bufferedOutputStream, TcpUi tcpui) {
         this.bufferedInputStream = bufferedInputStream;
         this.bufferedOutputStream = bufferedOutputStream;
         this.tcpui = tcpui;
@@ -72,7 +72,7 @@ public class ReceiveThread extends Thread implements Constant {
             // 处理数据
             position = OtherTools.getFFD8AndFFD9(bytes);
             // 生成图片
-            IOTools.writeIntoFile(formedPhoto, bytes, position[0], position[1] - position[0] + 1, false);
+            IoTools.writeIntoFile(formedPhoto, bytes, position[0], position[1] - position[0] + 1, false);
 
             // 显示图片
             tcpui.setBufferedOutputStream(bufferedOutputStream);

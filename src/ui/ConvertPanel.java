@@ -6,7 +6,7 @@ import listener.ConvertListener;
 import main.Constant;
 import component.MyComboBox;
 import component.MyRadioButton;
-import tools.OSTools;
+import tools.OsTools;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,6 +31,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         super();
         this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new FlowLayout());
+        this.setBackground(Color.WHITE);
 
         // 转换方式单选按钮
         JRadioButton toTxtButton = new MyRadioButton("jpg-txt", false, TO_TXT_ACTION, true);
@@ -46,7 +47,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         osButtonGroup.add(winButton);
         osButtonGroup.add(linuxButton);
         // 自动检测操作系统
-        if (OSTools.getOS() == LINUX) {
+        if (OsTools.getOS() == LINUX) {
             linuxButton.setSelected(true);
         } else {
             winButton.setSelected(true);

@@ -39,9 +39,9 @@ public class FileTools implements Constant {
      */
     private static String getPicturesFolder() {
         // 获取用户家目录
-        String homeDir = OSTools.getUserHomeDir();
+        String homeDir = OsTools.getUserHomeDir();
         // 根据家目录得到图片保存的路径
-        String receiveFolder = homeDir + OSTools.getFileSeparator() + "Pictures" + OSTools.getFileSeparator() + "receive" + OSTools.getFileSeparator();
+        String receiveFolder = homeDir + OsTools.getFileSeparator() + "Pictures" + OsTools.getFileSeparator() + "receive" + OsTools.getFileSeparator();
         // 如果此目录不存在, 则创建此目录
         File receiveFolderFile = new File(receiveFolder);
         if (!receiveFolderFile.exists()) {
@@ -93,7 +93,7 @@ public class FileTools implements Constant {
             if (point_dot == -1 && c == '.') {
                 point_dot = i;
             }
-            if (point_slash == -1 && c == OSTools.getFileSeparator()) {
+            if (point_slash == -1 && c == OsTools.getFileSeparator()) {
                 point_slash = i;
             }
             // 位置都找到了之后就退出

@@ -1,6 +1,6 @@
 package tcpthread;
 
-import ui.TcpUI;
+import ui.TcpUi;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -23,7 +23,7 @@ public class ServerThread extends Thread {
         BufferedOutputStream bufferedOutputStream = null;
         try {
             server = new ServerSocket(PORT);
-            TcpUI ui = new TcpUI();
+            TcpUi ui = new TcpUi();
             ui.initUi();
             ui.printMessage("server established, waiting for client connect...");
             while (true) {

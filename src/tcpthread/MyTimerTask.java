@@ -1,6 +1,6 @@
 package tcpthread;
 
-import ui.TcpUI;
+import ui.TcpUi;
 
 import java.util.TimerTask;
 
@@ -11,9 +11,9 @@ import java.util.TimerTask;
 public class MyTimerTask extends TimerTask {
 
     private int i = 0;
-    private TcpUI tcpUI;
+    private TcpUi tcpUI;
 
-    public MyTimerTask(TcpUI tcpUI) {
+    public MyTimerTask(TcpUi tcpUI) {
         this.tcpUI = tcpUI;
     }
 

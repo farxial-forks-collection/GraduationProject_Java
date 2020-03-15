@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @author ypl
  * @date 2020/1/4
  */
-public class OSTools implements Constant {
+public class OsTools implements Constant {
 
     private static boolean os;
     private static String lineSeparator;
