@@ -33,4 +33,5 @@ public interface Constant {
     String TAKE_PHOTO_ACTION = "take photo action";
     String CLEAR_ACTION = "clear action";
     String STOP_ACTION = "stop action";
+    String OPEN_DIRECTORY_ACTION = "open directory";
 }

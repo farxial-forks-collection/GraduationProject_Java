@@ -35,6 +35,7 @@ public class ControlPanel extends JPanel implements Constant {
         JButton stopButton = new MyButton(140, 20, "Stop Auto Mode", STOP_ACTION);
         JButton takePhotoButton = new MyButton(140, 20, "Manual TakePhoto", TAKE_PHOTO_ACTION);
         JButton clearButton = new MyButton(140, 20, "Clear Message", CLEAR_ACTION);
+        JButton openDirectoryButton = new MyButton(140, 20, "Open Saved Photo", OPEN_DIRECTORY_ACTION);
 
         // 为所有组件添加监听器
         TimeListener timeListener = new TimeListener(tcpUI);
@@ -45,6 +46,7 @@ public class ControlPanel extends JPanel implements Constant {
         stopButton.addActionListener(timeListener);
         takePhotoButton.addActionListener(timeListener);
         clearButton.addActionListener(timeListener);
+        openDirectoryButton.addActionListener(timeListener);
 
         // Add Component
         this.add(new JLabel("  Hour: "));
@@ -59,6 +61,8 @@ public class ControlPanel extends JPanel implements Constant {
         this.add(takePhotoButton);
         this.add(new SpacePanel(width, 10, Color.WHITE));
         this.add(clearButton);
+        this.add(new SpacePanel(width, 10, Color.WHITE));
+        this.add(openDirectoryButton);
     }
 
 }

@@ -20,9 +20,6 @@ public class RightPanel extends JPanel {
         tabbedPane.addTab("Control", new ControlPanel(width, height, tcpUI));
         tabbedPane.addTab("Convert", new ConvertPanel(width, height));
         this.add(tabbedPane);
-
-//        this.add(new ControlPanel(width, 260, tcpUI));
-//        this.add(new ConvertPanel(width, 220));
     }
 
 }

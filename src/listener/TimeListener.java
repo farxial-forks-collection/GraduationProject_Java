@@ -2,6 +2,8 @@ package listener;
 
 import main.Constant;
 import tcpthread.MyTimerTask;
+import tools.FileTools;
+import tools.OsTools;
 import ui.TcpUi;
 
 import javax.swing.*;
@@ -50,6 +52,9 @@ public class TimeListener implements ActionListener, Constant {
                 break;
             case CLEAR_ACTION:
                 clearAction();
+                break;
+            case OPEN_DIRECTORY_ACTION:
+                openDirectoryAction();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + e.getActionCommand());
@@ -102,6 +107,10 @@ public class TimeListener implements ActionListener, Constant {
 
     private void clearAction() {
         tcpUI.clearMessage();
+    }
+
+    private void openDirectoryAction(){
+        FileTools.showFile(OsTools.getOS(), FileTools.getPicturesFolder());
     }
 
     // 以下为外部调用的方法 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

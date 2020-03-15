@@ -80,7 +80,6 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         fileChooseButton.addActionListener(convertListener);
 
         // 添加所有的组件
-        this.add(new JLabel("CONVERT PHOTO FORMAT"));
         this.add(new JLabel("Select Method: "));
         this.add(toTxtButton);
         this.add(toJpgButton);

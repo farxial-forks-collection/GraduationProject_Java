@@ -37,7 +37,7 @@ public class FileTools implements Constant {
      *
      * @return 保存图片文件夹的绝对路径
      */
-    private static String getPicturesFolder() {
+    public static String getPicturesFolder() {
         // 获取用户家目录
         String homeDir = OsTools.getUserHomeDir();
         // 根据家目录得到图片保存的路径
