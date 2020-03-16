@@ -39,7 +39,7 @@ public class PhotoPanel extends JPanel {
             e.printStackTrace();
         }
         // 图片为320*240 此处把图片放大两倍
-        g.drawImage(image, 0, 0, 640, 480, this);
+        g.drawImage(image, 2, 2, 640, 480, this);
     }
 
 }

@@ -33,7 +33,8 @@ public class TcpUi implements Constant {
     public void initUi() {
         // 主容器
         frame = new JFrame();
-        frame.setSize(812, 637);
+        frame.setTitle("Hunnu.yuanpeilin.graduationProject");
+        frame.setSize(818, 643);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -42,11 +43,12 @@ public class TcpUi implements Constant {
         Container container = frame.getContentPane();
 
         // 左边图片面板
-        photoPanel = new PhotoPanel(640, 480);
+        photoPanel = new PhotoPanel(644, 484);
+        photoPanel.setBorder(BorderFactory.createLoweredSoftBevelBorder());
         // 右边控制面板
-        JPanel rightPanel = new RightPanel(UiTools.WIDTH_OFFSET + 158, 480, this);
+        JPanel rightPanel = new RightPanel(UiTools.WIDTH_OFFSET + 160, 484, this);
         // 底部信息面板
-        messagePanel = new MessagePanel(798, 120 + UiTools.HEIGHT_OFFSET, new MyTextArea());
+        messagePanel = new MessagePanel(804, UiTools.HEIGHT_OFFSET + 122, new MyTextArea());
 
         // 添加所有二级面板
         container.add(photoPanel, BorderLayout.WEST);
