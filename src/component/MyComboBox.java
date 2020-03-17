@@ -28,6 +28,7 @@ public class MyComboBox extends JComboBox {
         this.setActionCommand(actionCommand);
         // 设置大小
         this.setPreferredSize(new Dimension(width, height));
+        this.setBorder(BorderFactory.createEtchedBorder());
     }
 
     /**

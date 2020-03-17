@@ -9,15 +9,14 @@ import java.awt.*;
  */
 public class RightPanel extends JPanel {
 
-    public RightPanel(int width, int height, TcpUi tcpUI) {
+    public RightPanel(int width, int height, TcpUi tcpUi) {
         this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(Color.LIGHT_GRAY);
         this.setLayout(new FlowLayout());
 
         // 选项卡
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         // 添加两个新的选项卡
-        tabbedPane.addTab("Control", new ControlPanel(width, height, tcpUI));
+        tabbedPane.addTab("Control", new ControlPanel(width, height, tcpUi));
         tabbedPane.addTab("Convert", new ConvertPanel(width, height));
         this.add(tabbedPane);
     }

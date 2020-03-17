@@ -12,14 +12,12 @@ public class SpacePanel extends JPanel {
     /**
      * 构造函数
      *
-     * @param width
-     * @param height
-     * @param color
+     * @param width 宽
+     * @param height 高
      */
-    public SpacePanel(int width, int height, Color color) {
+    public SpacePanel(int width, int height) {
         super();
         this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(color);
     }
 
 }

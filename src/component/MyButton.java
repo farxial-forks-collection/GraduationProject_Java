@@ -23,6 +23,7 @@ public class MyButton extends JButton {
         this.setPreferredSize(new Dimension(width, height));
         // 设置命令
         this.setActionCommand(actionCommand);
+        this.setBorder(BorderFactory.createRaisedBevelBorder());
     }
 
 }
