@@ -49,9 +49,7 @@ public class ControlPanel extends JPanel implements Constant {
 
         // Add Component
         this.add(autoModePanel);
-//        this.add(new SpacePanel(width, 10));
         this.add(clearButton);
-//        this.add(new SpacePanel(width, 10));
         this.add(openDirectoryButton);
     }
 
@@ -80,7 +78,6 @@ public class ControlPanel extends JPanel implements Constant {
         panel.add(secondsComboBox);
         panel.add(setTimeButton);
         panel.add(stopButton);
-//        panel.add(new SpacePanel(width - 40, 10));
         panel.add(takePhotoButton);
         return panel;
     }
