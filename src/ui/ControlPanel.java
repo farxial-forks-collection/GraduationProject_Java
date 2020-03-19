@@ -70,7 +70,7 @@ public class ControlPanel extends JPanel implements Constant {
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(width, 210));
         panel.setBorder(BorderFactory.createTitledBorder("Auto Mode"));
-        panel.add(new JLabel("  Hour: "));
+        panel.add(new JLabel("Hour:   "));
         panel.add(hourComboBox);
         panel.add(new JLabel("Minute: "));
         panel.add(minuteComboBox);
