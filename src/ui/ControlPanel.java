@@ -49,9 +49,9 @@ public class ControlPanel extends JPanel implements Constant {
 
         // Add Component
         this.add(autoModePanel);
-        this.add(new SpacePanel(width, 10));
+//        this.add(new SpacePanel(width, 10));
         this.add(clearButton);
-        this.add(new SpacePanel(width, 10));
+//        this.add(new SpacePanel(width, 10));
         this.add(openDirectoryButton);
     }
 
@@ -70,7 +70,7 @@ public class ControlPanel extends JPanel implements Constant {
         takePhotoButton = new MyButton(140, 30, "Manual TakePhoto", TAKE_PHOTO_ACTION);
 
         JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(width, 230));
+        panel.setPreferredSize(new Dimension(width, 210));
         panel.setBorder(BorderFactory.createTitledBorder("Auto Mode"));
         panel.add(new JLabel("  Hour: "));
         panel.add(hourComboBox);
@@ -80,7 +80,7 @@ public class ControlPanel extends JPanel implements Constant {
         panel.add(secondsComboBox);
         panel.add(setTimeButton);
         panel.add(stopButton);
-        panel.add(new SpacePanel(width - 40, 10));
+//        panel.add(new SpacePanel(width - 40, 10));
         panel.add(takePhotoButton);
         return panel;
     }

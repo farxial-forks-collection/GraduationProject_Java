@@ -136,7 +136,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         JPanel panel = new JPanel();
 
         panel.setBorder(BorderFactory.createTitledBorder("Line Style"));
-        panel.setPreferredSize(new Dimension(width, 100));
+        panel.setPreferredSize(new Dimension(width, 78));
         panel.add(commaCheckBox);
         panel.add(new JLabel("Line Count: "));
         panel.add(lineMaxLengthComboBox);
