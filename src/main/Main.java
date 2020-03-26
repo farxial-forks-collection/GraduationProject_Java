@@ -1,7 +1,6 @@
 package main;
 
 import tcpthread.ServerThread;
-import ui.OldConvertPhotoUI;
 
 /**
  * @author ypl
@@ -11,8 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         new ServerThread().start();
-
-//        new OldConvertPhotoUI();
     }
 
 }
