@@ -11,16 +11,11 @@ import java.util.TimerTask;
 public class MyTimerTask extends TimerTask {
 
     private int i = 0;
-    private TcpUi tcpUI;
-
-    public MyTimerTask(TcpUi tcpUI) {
-        this.tcpUI = tcpUI;
-    }
 
     @Override
     public void run() {
         i++;
-        tcpUI.printMessage("Auto Photo Mode: " + i);
+        TcpUi.printMessage("自动模式: " + i);
     }
 
 }

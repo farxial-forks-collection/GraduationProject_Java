@@ -62,12 +62,12 @@ public class ReceiveThread extends Thread implements Constant {
                         bytes[point_bytes] = pack[i];
                         point_bytes++;
                     }
-                    System.out.println(pack_count + " package receive success!");
+                    System.out.println("第 " + pack_count + " 个包接收成功!");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            tcpui.printMessage(PACKAGE_SIZE + "*" + PACKAGE_COUNT + "  Photo received");
+            tcpui.printMessage("总共接收: " + PACKAGE_SIZE + "(包的大小) * " + PACKAGE_COUNT + "(包的数量)");
 
             // 处理数据
             position = OtherTools.getFFD8AndFFD9(bytes);

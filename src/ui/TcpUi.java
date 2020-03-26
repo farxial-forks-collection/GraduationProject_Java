@@ -15,10 +15,10 @@ import java.io.BufferedOutputStream;
  */
 public class TcpUi implements Constant {
 
-    private JFrame frame;
-    private JPanel photoPanel;
-    private MessagePanel messagePanel;
-    private TimeListener timeListener;
+    private static JFrame frame;
+    private static JPanel photoPanel;
+    private static MessagePanel messagePanel;
+    private static TimeListener timeListener;
 
     // 设置UI的风格为系统默认风格(跨平台的太丑了)
     static {
@@ -65,19 +65,19 @@ public class TcpUi implements Constant {
 
     // 以下为外部可调用方法 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    public void setPhoto() {
+    public static void setPhoto() {
         photoPanel.repaint();
     }
 
-    public void clearMessage() {
+    public static void clearMessage() {
         messagePanel.clear();
     }
 
-    public void printMessage(String message) {
+    public static void printMessage(String message) {
         messagePanel.append(message);
     }
 
-    public void showWarningMessage(String message) {
+    public static void showWarningMessage(String message) {
         JOptionPane.showMessageDialog(frame, message, "Warning", JOptionPane.WARNING_MESSAGE);
     }
 

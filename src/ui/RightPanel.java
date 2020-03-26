@@ -16,8 +16,8 @@ public class RightPanel extends JPanel {
         // 选项卡
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         // 添加两个新的选项卡
-        tabbedPane.addTab("Control", new ControlPanel(width, height, tcpUi));
-        tabbedPane.addTab("Convert", new ConvertPanel(width, height));
+        tabbedPane.addTab("控制", new ControlPanel(width, height, tcpUi));
+        tabbedPane.addTab("调试", new ConvertPanel(width, height));
         this.add(tabbedPane);
     }
 

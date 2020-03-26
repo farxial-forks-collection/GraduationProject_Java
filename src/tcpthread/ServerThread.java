@@ -25,15 +25,15 @@ public class ServerThread extends Thread {
             server = new ServerSocket(PORT);
             TcpUi ui = new TcpUi();
             ui.initUi();
-            ui.printMessage("server established, waiting for client connect...");
+            ui.printMessage("初始化完成, 等待图片传输...");
             while (true) {
                 Socket client = server.accept();
-                ui.printMessage("client connected");
+                ui.printMessage("单片机已连接");
                 inputStream = client.getInputStream();
                 bufferedInputStream = new BufferedInputStream(inputStream);
                 outputStream = client.getOutputStream();
                 bufferedOutputStream = new BufferedOutputStream(outputStream);
-                ui.printMessage("client address: " + client.getRemoteSocketAddress() + "   bos_code: " + bufferedOutputStream.hashCode());
+                ui.printMessage("单片机地址: " + client.getRemoteSocketAddress() + "   OutputSteamHashcode: " + bufferedOutputStream.hashCode());
                 new ReceiveThread(bufferedInputStream, bufferedOutputStream, ui).start();
             }
         } catch (IOException e) {

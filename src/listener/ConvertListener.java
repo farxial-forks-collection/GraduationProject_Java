@@ -148,20 +148,20 @@ public class ConvertListener implements ActionListener, Constant {
         long time = now - past;
         switch (status) {
             case CONVERT_JPG_TO_TXT_SUCCESS:
-                optionPanelMessage = "Convert Success" + OsTools.getLineSeparator() + txtPath + OsTools.getLineSeparator() + "time: " + time + "ms";
+                optionPanelMessage = "转换成功" + OsTools.getLineSeparator() + txtPath + OsTools.getLineSeparator() + "时间: " + time + "ms";
                 break;
             case CONVERT_TXT_TO_JPG_SUCCESS:
-                optionPanelMessage = "Convert Success" + OsTools.getLineSeparator() + jpgPath + OsTools.getLineSeparator() + "time: " + time + "ms";
+                optionPanelMessage = "转换成功" + OsTools.getLineSeparator() + jpgPath + OsTools.getLineSeparator() + "时间: " + time + "ms";
                 break;
             case NOT_JPG:
-                optionPanelMessage = "Please Select A JPG Photo!";
+                optionPanelMessage = "请选择一张JPG格式图片!";
                 break;
             case NOT_TXT:
-                optionPanelMessage = "Please Select A TXT File!";
+                optionPanelMessage = "请选择一个TXT文件!";
                 break;
             case UNKNOWN:
             default:
-                optionPanelMessage = "Unknown Error";
+                optionPanelMessage = "未知错误";
                 break;
         }
         JOptionPane.showMessageDialog(null, optionPanelMessage, "WARNING", JOptionPane.WARNING_MESSAGE);

@@ -42,7 +42,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         // 行样式面板
         JPanel lineStylePanel = initLineStylePanel(width);
         // 文件选择按钮
-        JButton fileChooseButton = new MyButton(140, 30, "Choose File", CHOOSE_FILE_ACTION);
+        JButton fileChooseButton = new MyButton(140, 30, "选择文件", CHOOSE_FILE_ACTION);
 
         // 设置监听器
         ConvertListener convertListener = new ConvertListener(this);
@@ -79,7 +79,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
 
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(width, 60));
-        panel.setBorder(BorderFactory.createTitledBorder("Convert Method"));
+        panel.setBorder(BorderFactory.createTitledBorder("转换方式"));
         panel.add(toTxtButton);
         panel.add(toJpgButton);
         return panel;
@@ -107,7 +107,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
 
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(width, 60));
-        panel.setBorder(BorderFactory.createTitledBorder("Select OS"));
+        panel.setBorder(BorderFactory.createTitledBorder("操作系统"));
         panel.add(winButton);
         panel.add(linuxButton);
         return panel;
@@ -122,7 +122,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
      */
     private JPanel initLineStylePanel(int width) {
         // 0x与逗号
-        commaCheckBox = new JCheckBox("Need 0x & Comma ?");
+        commaCheckBox = new JCheckBox("   需要 0x 与 ,  ");
         commaCheckBox.setOpaque(false);
         commaCheckBox.setSelected(false);
         commaCheckBox.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -135,10 +135,10 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         lineMaxLengthComboBox = new MyComboBox(60, 20, ints, 31, MAX_LINE_ACTION);
         JPanel panel = new JPanel();
 
-        panel.setBorder(BorderFactory.createTitledBorder("Line Style"));
+        panel.setBorder(BorderFactory.createTitledBorder("行样式"));
         panel.setPreferredSize(new Dimension(width, 78));
         panel.add(commaCheckBox);
-        panel.add(new JLabel("Line Count: "));
+        panel.add(new JLabel("行字节数: "));
         panel.add(lineMaxLengthComboBox);
         return panel;
     }

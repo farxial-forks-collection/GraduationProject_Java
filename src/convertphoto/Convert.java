@@ -18,7 +18,8 @@ public class Convert {
 
     /**
      * <p>读取一个图片并将ASCII码存入文件</p>
-     * <p>方法是: 每次读取一个字节, 将这个字节转换为两个十六进制数</p>
+     * <p>方法是:
+     * 每次读取一个字节, 将这个字节转换为两个十六进制数</p>
      *
      * @param absolutePath jpg文件的绝对路径
      * @param needComma 是否需要空格与逗号

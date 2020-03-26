@@ -21,13 +21,8 @@ public class TimeListener implements ActionListener, Constant {
 
     private int hour = 0, minute = 1, second = 0;
     private BufferedOutputStream bufferedOutputStream;
-    private TcpUi tcpUI;
     private Timer timer;
     private TimerTask timerTask;
-
-    public TimeListener(TcpUi tcpUI) {
-        this.tcpUI = tcpUI;
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -84,7 +79,7 @@ public class TimeListener implements ActionListener, Constant {
 
         timer = new Timer();
         long period = (hour * 3600 + minute * 60 + second) * 1000;
-        timerTask = new MyTimerTask(tcpUI);
+        timerTask = new MyTimerTask();
         // 开始执行定时任务 延时0ms 每次任务的间隔周期为 period ms
         timer.schedule(timerTask, 0, period);
     }
@@ -94,22 +89,22 @@ public class TimeListener implements ActionListener, Constant {
             // 此时为自动模式, 执行完下面三句会变成手动模式
             timer.cancel();
             timer = null;
-            tcpUI.printMessage("Canceled Auto Mode");
+            TcpUi.printMessage("已取消自动模式");
         } else {
             // 此时为手动模式(模式不会改变)
-            tcpUI.printMessage("Already In Manual Mode");
+            TcpUi.printMessage("已经是手动模式");
         }
     }
 
     private void takePhotoAction() {
-        tcpUI.printMessage("Manual Take Photo");
+        TcpUi.printMessage("手动模式");
     }
 
     private void clearAction() {
-        tcpUI.clearMessage();
+        TcpUi.clearMessage();
     }
 
-    private void openDirectoryAction(){
+    private void openDirectoryAction() {
         FileTools.showFile(OsTools.getOS(), FileTools.getPicturesFolder());
     }
 
