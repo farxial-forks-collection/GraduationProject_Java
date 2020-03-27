@@ -14,15 +14,14 @@ public class FileTools implements Constant {
     /**
      * 弹出文件管理器
      *
-     * @param os 操作系统
      * @param directory 传入一个目录, 不是绝对路径
      */
-    public static void showFile(boolean os, String directory) {
+    public static void showFile(String directory) {
         try {
-            if (os == LINUX) {
+            if (OsTools.getOS() == LINUX) {
                 Runtime.getRuntime().exec("nautilus " + directory);
             }
-            if (os == WINDOWS) {
+            if (OsTools.getOS() == WINDOWS) {
                 Runtime.getRuntime().exec("cmd /c start explorer " + directory);
             }
         } catch (IOException e) {
@@ -125,25 +124,12 @@ public class FileTools implements Constant {
     }
 
     /**
-     * <p>根据绝对路径获取文件名(不包含扩展名和点)</p>
+     * <p>得到同名txt文件的绝对路径</p>
      * <p>(通过调用内部函数splitPath(String absolutePath)实现)</p>
-     * <p>传入"home/root/Desktop/Main.java", 返回"Main.java"</p>
+     * <p>传入"/home/root/Desktop/Main.java", 返回"/home/root/Desktop/Main.txt"</p>
      *
      * @param absolutePath 某个文件的绝对路径
-     * @return 此文件的文件名
-     */
-    public static String getFileNameByPath(String absolutePath) {
-        String[] strings = splitPath(absolutePath);
-        return strings[1];
-    }
-
-    /**
-     * <p>得到同名txt文件</p>
-     * <p>(通过调用内部函数splitPath(String absolutePath)实现)</p>
-     * <p>传入"home/root/Desktop/Main.java", 返回"Main.txt"</p>
-     *
-     * @param absolutePath 某个文件的绝对路径
-     * @return 此文件同名的txt文件
+     * @return 此文件同名txt文件的绝对路径
      */
     public static String getTxtPath(String absolutePath) {
         String[] strings = splitPath(absolutePath);
@@ -151,12 +137,12 @@ public class FileTools implements Constant {
     }
 
     /**
-     * <p>得到jpg同名文件</p>
+     * <p>得到jpg同名文件的绝对路径</p>
      * <p>(通过调用内部函数splitPath(String absolutePath)实现)</p>
-     * <p>传入"home/root/Desktop/Main.java", 返回"Main.jpg"</p>
+     * <p>传入"/home/root/Desktop/Main.java", 返回"/home/root/Desktop/Main.jpg"</p>
      *
      * @param absolutePath 某个文件的绝对路径
-     * @return 此文件同名的jpg文件
+     * @return 此文件同名jpg文件的绝对路径
      */
     public static String getJpgPath(String absolutePath) {
         String[] strings = splitPath(absolutePath);

@@ -1,6 +1,13 @@
 package tools;
 
 /**
+ * standard: 798*600
+ * <p>Win Oracle JDK 11: 798*600</p>
+ * <p>Win Oracle JDK 8: 806*602</p>
+ * <p>Linux Oracle JDK 8: 812*600</p>
+ * <p>Linux Oracle JDK 11: 812*600</p>
+ * <p>Linux Open JDK 11: 812*600</p>
+ *
  * @author TeLa LuoSiFen
  * @date 2020/3/15
  */

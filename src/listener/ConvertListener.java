@@ -5,6 +5,7 @@ import convertphoto.ConvertInterface;
 import main.Constant;
 import tools.FileTools;
 import tools.OsTools;
+import ui.TcpUi;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,11 +33,6 @@ public class ConvertListener implements ActionListener, Constant {
     private boolean method = JPG_TO_TXT;
 
     private ConvertInterface convert;
-    private final int UNKNOWN = 0;
-    private final int CONVERT_JPG_TO_TXT_SUCCESS = 1;
-    private final int NOT_JPG = 2;
-    private final int NOT_TXT = 3;
-    private final int CONVERT_TXT_TO_JPG_SUCCESS = 4;
 
     public ConvertListener(ConvertInterface convertInterface) {
         this.convert = convertInterface;
@@ -72,28 +68,48 @@ public class ConvertListener implements ActionListener, Constant {
         }
     }
 
+    /**
+     * <p>转换方式为jpg -> txt</p>
+     * 并将所有组件设置为可以点击
+     */
     private void toTxtAction() {
         method = JPG_TO_TXT;
         convert.setEnable();
     }
 
+    /**
+     * <p>转换方式为txt -> jpg</p>
+     * 并将所有组件设置为不可点击
+     */
     private void toJpgAction() {
         method = TXT_TO_JPG;
         convert.setUnable();
     }
 
+    /**
+     * <p>将操作系统设置为Linux</p>
+     */
     private void linuxAction() {
         OsTools.setAsLinux();
     }
 
+    /**
+     * <p>将操作系统设置为Windows</p>
+     */
     private void winAction() {
         OsTools.setAsWindows();
     }
 
+    /**
+     * <p>将是否需要逗号取反</p>
+     */
     private void commaAction() {
         needComma = !needComma;
     }
 
+    /**
+     * <p>获取每行最大字节数</p>
+     */
     private void maxLineCountAction() {
         maxLineCount = convert.getMaxLineCount();
     }
@@ -124,7 +140,7 @@ public class ConvertListener implements ActionListener, Constant {
             if (isPhoto) {
                 Convert.getTxtByJpg(path, needComma, maxLineCount);
                 status = CONVERT_JPG_TO_TXT_SUCCESS;
-                FileTools.showFile(OsTools.getOS(), dir);
+                FileTools.showFile(dir);
             }
             if (!isPhoto) {
                 status = NOT_JPG;
@@ -135,7 +151,7 @@ public class ConvertListener implements ActionListener, Constant {
             if (isTxt) {
                 Convert.getJpgByTxt(path);
                 status = CONVERT_TXT_TO_JPG_SUCCESS;
-                FileTools.showFile(OsTools.getOS(), dir);
+                FileTools.showFile(dir);
             }
             if (!isTxt) {
                 status = NOT_TXT;
@@ -148,23 +164,28 @@ public class ConvertListener implements ActionListener, Constant {
         long time = now - past;
         switch (status) {
             case CONVERT_JPG_TO_TXT_SUCCESS:
-                optionPanelMessage = "转换成功" + OsTools.getLineSeparator() + txtPath + OsTools.getLineSeparator() + "时间: " + time + "ms";
+                optionPanelMessage = "转换成功!  所花时间: " + time + "ms" + OsTools.getLineSeparator() + "路径为: " + txtPath;
+                TcpUi.printMessage(optionPanelMessage);
                 break;
             case CONVERT_TXT_TO_JPG_SUCCESS:
-                optionPanelMessage = "转换成功" + OsTools.getLineSeparator() + jpgPath + OsTools.getLineSeparator() + "时间: " + time + "ms";
+                optionPanelMessage = "转换成功!  所花时间: " + time + "ms" + OsTools.getLineSeparator() + "路径为: " + jpgPath;
+                TcpUi.printMessage(optionPanelMessage);
                 break;
             case NOT_JPG:
                 optionPanelMessage = "请选择一张JPG格式图片!";
+                TcpUi.showWarningMessage(optionPanelMessage);
                 break;
             case NOT_TXT:
                 optionPanelMessage = "请选择一个TXT文件!";
+                TcpUi.showWarningMessage(optionPanelMessage);
                 break;
             case UNKNOWN:
             default:
                 optionPanelMessage = "未知错误";
+                TcpUi.showWarningMessage(optionPanelMessage);
                 break;
         }
-        JOptionPane.showMessageDialog(null, optionPanelMessage, "WARNING", JOptionPane.WARNING_MESSAGE);
+
     }
 
 }

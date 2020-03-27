@@ -16,25 +16,24 @@ public class ServerThread extends Thread {
 
     @Override
     public void run() {
-        ServerSocket server = null;
-        InputStream inputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        OutputStream outputStream = null;
-        BufferedOutputStream bufferedOutputStream = null;
+        ServerSocket server;
+        InputStream inputStream;
+        BufferedInputStream bufferedInputStream;
+        OutputStream outputStream;
+        BufferedOutputStream bufferedOutputStream;
         try {
             server = new ServerSocket(PORT);
-            TcpUi ui = new TcpUi();
-            ui.initUi();
-            ui.printMessage("初始化完成, 等待图片传输...");
+            new TcpUi().initUi();
+            TcpUi.printMessage("初始化完成, 等待图片传输...");
             while (true) {
                 Socket client = server.accept();
-                ui.printMessage("单片机已连接");
+                TcpUi.printMessage("单片机已连接");
                 inputStream = client.getInputStream();
                 bufferedInputStream = new BufferedInputStream(inputStream);
                 outputStream = client.getOutputStream();
                 bufferedOutputStream = new BufferedOutputStream(outputStream);
-                ui.printMessage("单片机地址: " + client.getRemoteSocketAddress() + "   OutputSteamHashcode: " + bufferedOutputStream.hashCode());
-                new ReceiveThread(bufferedInputStream, bufferedOutputStream, ui).start();
+                TcpUi.printMessage("单片机地址: " + client.getRemoteSocketAddress() + "   OutputSteamHashcode: " + bufferedOutputStream.hashCode());
+                new ReceiveThread(bufferedInputStream, bufferedOutputStream).start();
             }
         } catch (IOException e) {
             e.printStackTrace();

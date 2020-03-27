@@ -1,5 +1,6 @@
 package tcpthread;
 
+import tools.TakePhotoTools;
 import ui.TcpUi;
 
 import java.util.TimerTask;
@@ -16,6 +17,7 @@ public class MyTimerTask extends TimerTask {
     public void run() {
         i++;
         TcpUi.printMessage("自动模式: " + i);
+        TakePhotoTools.sendTakePhotoCommand();
     }
 
 }

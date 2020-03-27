@@ -24,9 +24,8 @@ public class ControlPanel extends JPanel implements Constant {
      *
      * @param width 面板的宽
      * @param height 面板的高
-     * @param tcpUi 主面板
      */
-    public ControlPanel(int width, int height, TcpUi tcpUi) {
+    public ControlPanel(int width, int height) {
         super();
         this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new FlowLayout());

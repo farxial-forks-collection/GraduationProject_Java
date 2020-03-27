@@ -71,24 +71,12 @@ public class Convert {
                 if (fileInputStream != null) {
                     fileInputStream.close();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
                 if (bufferedInputStream != null) {
                     bufferedInputStream.close();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
                 if (fileOutputStream != null) {
                     fileOutputStream.close();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
                 if (bufferedOutputStream != null) {
                     bufferedOutputStream.close();
                 }
@@ -151,17 +139,9 @@ public class Convert {
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
                 if (inputStreamReader != null) {
                     inputStreamReader.close();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
                 if (fileInputStream != null) {
                     fileInputStream.close();
                 }

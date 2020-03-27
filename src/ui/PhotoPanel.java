@@ -15,25 +15,25 @@ import java.io.IOException;
  */
 public class PhotoPanel extends JPanel {
 
-    private File file;
     private BufferedImage image = null;
 
     /**
      * 构造函数
      *
-     * @param width
-     * @param height
+     * @param width 宽
+     * @param height 高
      */
     public PhotoPanel(int width, int height) {
         super();
         this.setPreferredSize(new Dimension(width, height));
+        this.setBorder(BorderFactory.createLoweredSoftBevelBorder());
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         try {
-            file = new File(FileTools.getLastPhotoPath());
+            File file = new File(FileTools.getLastPhotoPath());
             image = ImageIO.read(file);
         } catch (IOException e) {
             e.printStackTrace();
