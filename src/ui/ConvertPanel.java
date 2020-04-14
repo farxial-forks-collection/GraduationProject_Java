@@ -138,7 +138,7 @@ public class ConvertPanel extends JPanel implements Constant, ConvertInterface {
         panel.setBorder(BorderFactory.createTitledBorder("行样式"));
         panel.setPreferredSize(new Dimension(width, 78));
         panel.add(commaCheckBox);
-        panel.add(new JLabel("行字节数: "));
+        panel.add(new JLabel("每行字数: "));
         panel.add(lineMaxLengthComboBox);
         return panel;
     }

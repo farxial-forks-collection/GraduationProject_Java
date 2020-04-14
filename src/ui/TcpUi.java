@@ -32,7 +32,7 @@ public class TcpUi implements Constant {
     public void initUi() {
         // 主容器
         frame = new JFrame();
-        frame.setTitle("Hunnu.yuanpeilin.graduationProject");
+        frame.setTitle("HUNNU.YuanPeiLin.GraduationProject");
         frame.setSize(838, 643);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
