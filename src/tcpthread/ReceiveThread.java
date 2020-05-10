@@ -1,10 +1,7 @@
 package tcpthread;
 
 import main.Constant;
-import tools.FileTools;
-import tools.IoTools;
-import tools.OtherTools;
-import tools.TakePhotoTools;
+import tools.*;
 import ui.TcpUi;
 
 import java.io.BufferedInputStream;
@@ -51,7 +48,7 @@ public class ReceiveThread extends Thread implements Constant {
                         bytes[point_bytes] = pack[i];
                         point_bytes++;
                     }
-                    System.out.println("第 " + pack_count + " 个包接收成功!");
+                    TerminalTools.print(this.getClass(), "第 " + pack_count + " 个包接收成功!");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

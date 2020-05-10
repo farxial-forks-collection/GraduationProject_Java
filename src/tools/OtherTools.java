@@ -11,8 +11,8 @@ public class OtherTools implements Constant {
     /**
      * <p>将一个-128~127的整数转换成一个字符串, 字符串包含两个十六进制的字符</p>
      *
-     * @param num       int类型整数, 保证范围在-128~127之间
-     * @param need0x    如果这个参数为真, 在返回的字符串之前会加上 0x
+     * @param num int类型整数, 保证范围在-128~127之间
+     * @param need0x 如果这个参数为真, 在返回的字符串之前会加上 0x
      * @param needComma 如果这个参数为真, 在返回的字符串之后会加上逗号
      * @return 两个十六进制字符组成的字符串(可能包括空格和0x)
      */
@@ -68,7 +68,7 @@ public class OtherTools implements Constant {
                 point_ffd9 = i;
             }
         }
-        System.out.println("point_ffd8: " + point_ffd8 + "   point_ffd9: " + point_ffd9);
+        TerminalTools.print(OtherTools.class, "point_ffd8: " + point_ffd8 + "   point_ffd9: " + point_ffd9);
 
         // 处理空图片
         if (point_ffd8 == -1) {

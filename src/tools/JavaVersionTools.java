@@ -11,7 +11,7 @@ public class JavaVersionTools {
     // 获取当前java的版本
     static {
         version = System.getProperty("java.specification.version");
-        System.out.println("Java version: " + version);
+        TerminalTools.print(JavaVersionTools.class, "Java version: " + version);
     }
 
     public static String getVersion() {

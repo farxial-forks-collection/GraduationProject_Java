@@ -3,6 +3,7 @@ package ui;
 import component.MyTextArea;
 import listener.TimeListener;
 import main.Constant;
+import tools.TerminalTools;
 import tools.UiTools;
 
 import javax.swing.*;
@@ -59,8 +60,8 @@ public class TcpUi implements Constant {
         frame.setIconImage(icon.getImage());
 
         // 调试信息
-        System.out.println("width: " + container.getWidth() + "   height: " + container.getHeight());
-        System.out.println("width_offset: " + UiTools.WIDTH_OFFSET + "   height_offset: " + UiTools.HEIGHT_OFFSET);
+        TerminalTools.print(this.getClass(), "width: " + container.getWidth() + "   height: " + container.getHeight());
+        TerminalTools.print(this.getClass(), "width_offset: " + UiTools.WIDTH_OFFSET + "   height_offset: " + UiTools.HEIGHT_OFFSET);
     }
 
     // 以下为外部可调用方法 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

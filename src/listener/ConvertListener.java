@@ -5,6 +5,7 @@ import convertphoto.ConvertInterface;
 import main.Constant;
 import tools.FileTools;
 import tools.OsTools;
+import tools.TerminalTools;
 import ui.TcpUi;
 
 import javax.swing.*;
@@ -63,7 +64,7 @@ public class ConvertListener implements ActionListener, Constant {
                 fileAction();
                 break;
             default:
-                System.out.println("ERROR! Check Your Code!");
+                TerminalTools.print(this.getClass(), "ERROR! Check Your Code!");
                 break;
         }
     }

@@ -17,9 +17,9 @@ public class TakePhotoTools {
     public static void sendTakePhotoCommand() {
         if (bufferedOutputStream != null) {
             try {
-                bufferedOutputStream.write("m".getBytes());
+                bufferedOutputStream.write("mmmmmmmmmmmmmmmm".getBytes());
                 bufferedOutputStream.flush();
-                System.out.println("已发送收到拍照的命令");
+                TerminalTools.print(TakePhotoTools.class, "已发送收到拍照的命令");
             } catch (IOException e) {
                 e.printStackTrace();
             }
