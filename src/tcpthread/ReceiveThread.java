@@ -21,6 +21,7 @@ public class ReceiveThread extends Thread implements Constant {
     public ReceiveThread(BufferedInputStream bufferedInputStream, BufferedOutputStream bufferedOutputStream) {
         this.bufferedInputStream = bufferedInputStream;
         this.bufferedOutputStream = bufferedOutputStream;
+        TakePhotoTools.setBufferedOutputStream(bufferedOutputStream);
     }
 
     @Override
@@ -61,7 +62,6 @@ public class ReceiveThread extends Thread implements Constant {
             IoTools.writeIntoFile(formedPhoto, bytes, position[0], position[1] - position[0] + 1, false);
 
             // 显示图片
-            TakePhotoTools.setBufferedOutputStream(bufferedOutputStream);
             TcpUi.setPhoto();
             TcpUi.printMessage("图片已保存: " + FileTools.getLastPhotoPath());
         }
