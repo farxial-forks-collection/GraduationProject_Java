@@ -63,7 +63,7 @@ public class ReceiveThread extends Thread implements Constant {
 
             // 显示图片
             TcpUi.setPhoto();
-            TcpUi.printMessage("图片已保存: " + FileTools.getLastPhotoPath());
+            TcpUi.printMessage("图片已保存: " + FileTools.getPicturesFolder());
         }
     }
 
