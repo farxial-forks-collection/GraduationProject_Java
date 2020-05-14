@@ -20,12 +20,12 @@ public class IoTools {
             e.printStackTrace();
         } finally {
             try {
-                bufferedOutputStream.close();
+                outputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                outputStream.close();
+                bufferedOutputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

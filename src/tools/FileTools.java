@@ -31,6 +31,8 @@ public class FileTools implements Constant {
 
     // ========================================================================
 
+    private static File lastFile = new File(NameTools.DEFAULT_NAME);
+
     /**
      * 获取存储接收到的图片的文件夹的绝对路径
      *
@@ -52,28 +54,27 @@ public class FileTools implements Constant {
     }
 
     /**
-     * <p>生成一个新图片的绝对路径</p>
-     * 如: C:\Users\ypl\Pictures\receive\receive_2020_03_13_20_07_13.jpg
+     * <p>生成一个新图片</p>
      *
-     * @return 新图片的绝对路径
+     * @return 新图片(File类型)
      */
-    public static String getNewPhotoPath() {
-        return getPicturesFolder() + NameTools.getNewName();
+    public static File getNewPicture() {
+        String path = getPicturesFolder() + NameTools.getNewName();
+        return new File(path);
     }
 
     /**
-     * <p>获取最新收到的图片的绝对路径</p>
+     * <p>获取最新收到的图片</p>
      *
-     * @return 图片的绝对路径
+     * @return 图片(File类型)
      */
-    public static String getLastPhotoPath() {
+    public static File getLastPicture() {
         String name = NameTools.getLastName();
-        if (name.equals(NameTools.DEFAULT_NAME)) {
+        if (!name.equals(lastFile.getName())) {
             // name等于默认名说明还没收到图片, 此时name即使文件名也是路径
-            return name;
-        } else {
-            return getPicturesFolder() + NameTools.getLastName();
+            lastFile = new File(getPicturesFolder() + name);
         }
+        return lastFile;
     }
 
     // ========================================================================

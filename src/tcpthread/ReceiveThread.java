@@ -1,12 +1,12 @@
 package tcpthread;
 
 import main.Constant;
-import tools.*;
+import tools.TakePhotoTools;
+import tools.TerminalTools;
 import ui.TcpUi;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -28,11 +28,8 @@ public class ReceiveThread extends Thread implements Constant {
     public void run() {
         byte[] bytes, pack;
         int point_bytes, pack_count;
-        // 长度为2, 存储point_ffd8和point_ffd9
-        int[] position;
         // 接受的总字节数
         int TOTAL_SIZE = PACKAGE_SIZE * PACKAGE_COUNT;
-        File formedPhoto = new File(FileTools.getNewPhotoPath());
         while (true) {
             // 初始化变量
             bytes = new byte[TOTAL_SIZE];
@@ -55,15 +52,8 @@ public class ReceiveThread extends Thread implements Constant {
                 e.printStackTrace();
             }
             TcpUi.printMessage("总共接收: " + PACKAGE_SIZE + "(包的大小) * " + PACKAGE_COUNT + "(包的数量)");
-
-            // 处理数据
-            position = OtherTools.getFFD8AndFFD9(bytes);
-            // 生成图片
-            IoTools.writeIntoFile(formedPhoto, bytes, position[0], position[1] - position[0] + 1, false);
-
             // 显示图片
-            TcpUi.setPhoto();
-            TcpUi.printMessage("图片已保存: " + FileTools.getPicturesFolder());
+            TcpUi.setPhoto(bytes);
         }
     }
 

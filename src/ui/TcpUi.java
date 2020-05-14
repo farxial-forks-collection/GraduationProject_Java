@@ -8,7 +8,6 @@ import tools.UiTools;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedOutputStream;
 
 /**
  * @author ypl
@@ -17,7 +16,7 @@ import java.io.BufferedOutputStream;
 public class TcpUi implements Constant {
 
     private static JFrame frame;
-    private static JPanel photoPanel;
+    private static PhotoPanel photoPanel;
     private static MessagePanel messagePanel;
     private static TimeListener timeListener;
 
@@ -69,8 +68,8 @@ public class TcpUi implements Constant {
     /**
      * 收到图片后, 调用图片面板的repaint()刷新图片
      */
-    public static void setPhoto() {
-        photoPanel.repaint();
+    public static void setPhoto(byte[] bytes) {
+        photoPanel.setBytes(bytes);
     }
 
     /**

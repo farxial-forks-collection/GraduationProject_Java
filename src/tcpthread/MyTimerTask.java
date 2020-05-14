@@ -16,7 +16,7 @@ public class MyTimerTask extends TimerTask {
     @Override
     public void run() {
         i++;
-        TcpUi.printMessage("自动模式: " + i);
+        TcpUi.printMessage("[自动模式" + i + "] 已发送拍照请求，稍等几秒");
         TakePhotoTools.sendTakePhotoCommand();
     }
 

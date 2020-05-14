@@ -127,7 +127,7 @@ public class TimeListener implements ActionListener, Constant {
      * 手动拍照
      */
     private void takePhotoAction() {
-        TcpUi.printMessage("手动模式");
+        TcpUi.printMessage("[手动模式] 已发送拍照请求，稍等几秒");
         TakePhotoTools.sendTakePhotoCommand();
     }
 
